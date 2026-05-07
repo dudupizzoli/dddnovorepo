@@ -4,6 +4,28 @@ public class Alimentacao extends Despesa{
     private String nomeRestaurante;
     private int qtdRefeicao;
 
+    public void cadastrarDespesa(String descricao, String nomeRestaurante, int qtdRefeicao) {
+        super.cadastrarDespesa(descricao);
+        this.qtdRefeicao = qtdRefeicao;
+    }
+
+    @Override
+    public double calcularDespesa() {
+        return qtdRefeicao * 18;
+
+    }
+
+    @Override
+    public String listarDespesa() {
+        String mensagem = "Despesa de alimentação\n" +
+                "--------------------------------\n" +
+                "Descrição: " + descricao +
+                "\nRestaurante: " + nomeRestaurante +
+                "\nQuantidade de refeições: " + qtdRefeicao +
+                "\nGastos com alimentação: R$" + calcularDespesa();
+        return mensagem;
+    }
+
     public String getNomeRestaurante() {
         return nomeRestaurante;
     }
@@ -16,24 +38,6 @@ public class Alimentacao extends Despesa{
     }
     public void setQtdRefeicao(int qtdRefeicao) {
         this.qtdRefeicao = qtdRefeicao;
-    }
-
-    public void cadastrarDespesa(String descricao, String nomeRestaurante, int qtdRefeicao) {
-
-    }
-
-    @Override
-    public double calcularDespesa() {
-        return qtdRefeicao * 18;
-
-    }
-
-    @Override
-    public String listarDespesa() {
-        return "Despesas de alimentação:\n" +
-                "Descrição: " + descricao +
-                "\nRestaurante: " + nomeRestaurante +
-                "\n";
     }
 
 

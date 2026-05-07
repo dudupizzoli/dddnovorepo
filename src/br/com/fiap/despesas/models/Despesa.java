@@ -5,10 +5,10 @@ public abstract class Despesa {
     protected double valorTotal;
 
     public void cadastrarDespesa (String descricao){
-
+        this.descricao = descricao;
+        this.valorTotal = 0;
     }
     public abstract double calcularDespesa();
-
     public abstract String listarDespesa();
 
     public String getDescricao() {

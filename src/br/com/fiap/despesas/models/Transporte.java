@@ -12,12 +12,18 @@ public class Transporte extends Despesa{
 
     @Override
     public double calcularDespesa() {
-
+        return kmPercorrida * 3 + valorPedagio;
     }
 
     @Override
     public String listarDespesa() {
-
+        String mensagem = "Despesa de transporte\n" +
+                "--------------------------------\n" +
+                "Descrição: " + descricao +
+                "\nKM percorrida: " + kmPercorrida +
+                "\nValor dos pedágios: " + valorPedagio +
+                "\nGastos com transporte: R$" + calcularDespesa();
+        return mensagem;
     }
 
     public double getKmPercorrida() {
