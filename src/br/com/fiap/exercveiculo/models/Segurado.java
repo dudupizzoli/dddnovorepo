@@ -1,0 +1,38 @@
+package br.com.fiap.exercveiculo.models;
+
+import br.com.fiap.exercveiculo.interfaces.ISeguroService;
+
+public class Segurado extends Veiculo implements ISeguroService{
+
+    private double seguro;
+
+    public Segurado(double seguro){
+        this.seguro = seguro;
+    }
+
+
+    public double doTotal(){
+        return super.doTotal() - doDesconto();
+    }
+
+    public String doViewCupom(){
+        return super.doViewCupom()
+                + "\nValor do desconto: " + doDesconto()
+                + "\nValor total: " + doTotal();
+    }
+
+    @Override
+    public double doDesconto() {
+        return super.doTotal()*seguro/100;
+    }
+
+
+    public double getSeguro() {
+        return seguro;
+    }
+    public void setSeguro(double seguro) {
+        this.seguro = seguro;
+    }
+
+
+}
